@@ -25,7 +25,7 @@ const PopularServices = () => {
           {services.map((service, index) => (
             <div className="plumbing_service" key={index}>
               <div className="img_section">
-                <img src={`http://localhost:5000${service.img}`} alt={service.alt} />
+                <img src={`https://home-services-backend.vercel.app${service.img}`} alt={service.alt} />
               </div>
               <div className="button-text">
                 <div className="text-section">

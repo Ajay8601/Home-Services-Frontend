@@ -7,7 +7,7 @@ function SalonForWomanEmployee({ close }) {
   const [showRequest, setshowRequest] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/auth/serviceprovider/list") // ✅ Correct endpoint
+    fetch("https://home-services-backend.vercel.app/api/auth/serviceprovider/list") // ✅ Correct endpoint
       .then((response) => response.json())
       .then((data) => setserviceprovider(data))
       .catch((error) => console.error("Error fetching services:", error));
