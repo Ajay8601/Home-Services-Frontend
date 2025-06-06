@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './cleaningmodal.css';
+import './Cleaning.css';
 import ShiftingEmployee from '../EmployeeId/ShiftingEmployee';
 
 const Shifting = ({ onClose }) => {
