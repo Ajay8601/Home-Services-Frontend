@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Cleaning.css';
 import PlumbringEmployee from '../EmployeeId/PlumbringEmployee';
 
 const CleaningModal = ({ onClose }) => {
