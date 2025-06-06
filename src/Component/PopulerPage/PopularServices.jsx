@@ -9,7 +9,7 @@ const PopularServices = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://home-services-backend-9zi8.vercel.app//api/services")
+    fetch("https://home-services-backend-9zi8.vercel.app/api/services")
       .then(response => response.json())
       .then(data => setServices(data))
       .catch(error => console.error("Error fetching services:", error));
@@ -25,7 +25,7 @@ const PopularServices = () => {
           {services.map((service, index) => (
             <div className="plumbing_service" key={index}>
               <div className="img_section">
-                <img src={`https://home-services-backend-9zi8.vercel.app/${service.img}`} alt={service.alt} />
+                <img src={`https://home-services-backend-9zi8.vercel.app${service.img}`} alt={service.alt} />
               </div>
               <div className="button-text">
                 <div className="text-section">
