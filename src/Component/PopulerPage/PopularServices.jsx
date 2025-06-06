@@ -9,7 +9,7 @@ const PopularServices = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/services")
+    fetch("https://home-services-backend-9zi8.vercel.app//api/services")
       .then(response => response.json())
       .then(data => setServices(data))
       .catch(error => console.error("Error fetching services:", error));

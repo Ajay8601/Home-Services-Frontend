@@ -13,7 +13,7 @@ const MostBookedServices = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/most-booked-services");
+        const response = await fetch("https://home-services-backend-9zi8.vercel.app//api/most-booked-services");
         if (!response.ok) {
           throw new Error("Failed to fetch services");
         }
