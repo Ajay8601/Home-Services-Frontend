@@ -7,7 +7,7 @@ function ElectricalEmployee({ close }) {
     const [showRequest, setshowRequest] = useState(false);
 
   useEffect(() => {
-    fetch("https://home-services-backend-9zi8.vercel.app/api/auth/serviceprovider/list") // ✅ Correct endpoint
+    fetch("https://home-services-backend-6uc8.vercel.app/api/auth/serviceprovider/list") // ✅ Correct endpoint
       .then((response) => response.json())
       .then((data) => setserviceprovider(data))
       .catch((error) => console.error("Error fetching services:", error));

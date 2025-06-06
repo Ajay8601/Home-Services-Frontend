@@ -13,7 +13,7 @@ const MostBookedServices = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("https://home-services-backend-9zi8.vercel.app/api/most-booked-services");
+        const response = await fetch("https://home-services-backend-6uc8.vercel.app/api/most-booked-services");
         if (!response.ok) {
           throw new Error("Failed to fetch services");
         }
@@ -68,7 +68,7 @@ const MostBookedServices = () => {
             {services.length > 0 ? (
               services.map((service, index) => (
                 <div key={index} className="mbs" onClick={() => setRequestForm(true)}>
-                  <img src={`https://home-services-backend-9zi8.vercel.app/${service.img}`} alt={service.title} />
+                  <img src={`https://home-services-backend-6uc8.vercel.app${service.img}`} alt={service.title} />
                   <h3>{service.title}</h3>
                   <h5>
                     <img src="/Component/star.png" alt="Star" />
