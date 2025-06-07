@@ -45,7 +45,7 @@ export default function SpRegister({ close }) {
       }
   
       setSuccessMessage("Registration Successful! Redirecting...");
-      setTimeout(() => navigate("spLogin"), 2000);
+      setTimeout(() => navigate("/spLogin"), 2000);
   
     } catch (err) {
       setError(err.message || "Error connecting to server. Please try again.");

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./mbs.css";
 import Request from "../Request/Request";
 
+
 const MostBookedServices = () => {
   const scrollContainerRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
@@ -68,7 +69,7 @@ const MostBookedServices = () => {
             {services.length > 0 ? (
               services.map((service, index) => (
                 <div key={index} className="mbs" onClick={() => setRequestForm(true)}>
-                  <img src={`https://home-services-backend-6uc8.vercel.app${service.img}`} alt={service.title} />
+                  <img src={`http://localhost:5000${service.img}`} alt={service.title} />
                   <h3>{service.title}</h3>
                   <h5>
                     <img src="/Component/star.png" alt="Star" />
