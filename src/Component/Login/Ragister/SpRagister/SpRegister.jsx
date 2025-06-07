@@ -31,7 +31,7 @@ export default function SpRegister({ close }) {
     setSuccessMessage("");
   
     try {
-      const response = await  fetch("https://home-services-backend-6uc8.vercel.app/api/auth/serviceprovider/register", {
+      const response = await  fetch("https://home-services-backend-five.vercel.app/api/auth/serviceprovider/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ FIX: Send formData directly
