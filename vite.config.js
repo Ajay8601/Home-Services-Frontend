@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://home-services-backend-6uc8.vercel.app/',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
       },
