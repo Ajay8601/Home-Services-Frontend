@@ -69,7 +69,7 @@ const MostBookedServices = () => {
             {services.length > 0 ? (
               services.map((service, index) => (
                 <div key={index} className="mbs" onClick={() => setRequestForm(true)}>
-                  <img src={`https://home-services-backend-five.vercel.app${service.img}`} alt={service.title} />
+                  <img src={service.img} alt={service.title} />
                   <h3>{service.title}</h3>
                   <h5>
                     <img src="/Component/star.png" alt="Star" />
