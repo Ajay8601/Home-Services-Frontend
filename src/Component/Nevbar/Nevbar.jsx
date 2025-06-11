@@ -30,6 +30,9 @@ function Navbar() {
   return (
     <>
       <div className="nav_bar">
+        <div>
+          <img src="/Image/logo1.png" alt="logo" className="logo_part" />
+        </div>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -47,19 +50,21 @@ function Navbar() {
 
         {isLoggedIn ? (
           <div className="After_Login">
-            <div >
-              <img src="Component/Booking.svg" alt="Booking" 
-              height={40}
-              className="booking"
-               />
+            <div>
+              <img
+                src="Component/Booking.svg"
+                alt="Booking"
+                height={40}
+                className="booking"
+              />
             </div>
-            <div
-              onClick={() => setshowProfile(!showProfile)}
-              
-            >
-              <img src="Component/Profile.svg" alt="Profile"
-              height={40}
-              className="Profile" />
+            <div onClick={() => setshowProfile(!showProfile)}>
+              <img
+                src="Component/Profile.svg"
+                alt="Profile"
+                height={40}
+                className="Profile"
+              />
             </div>
             {showProfile && (
               <div className="profile-container">
@@ -80,6 +85,7 @@ function Navbar() {
                 <span>Login</span>
               </button>
               {showHiddenBtns && (
+                <div className="btnbox">
                 <div className="hiddenbtn">
                   <button onClick={() => setShowUserLogin(true)}>
                     Customer Login
@@ -88,6 +94,7 @@ function Navbar() {
                     Employee Login
                   </button>
                 </div>
+                </div>
               )}
             </div>
           </div>
@@ -95,9 +102,6 @@ function Navbar() {
       </div>
 
       <hr />
-      <div>
-        <img src="/Image/logo1.png" alt="logo" className="logo_part" />
-      </div>
 
       {/* Show Login Components with onLoginSuccess */}
       {showUserLogin && (

@@ -21,7 +21,7 @@ export default function SpLogin({ close, onLoginSuccess }) {
     }
 
     try {
-      const response = await fetch("https://home-services-backend-five.vercel.app/api/auth/serviceprovider/login", {
+      const response = await fetch("http://localhost:5000/api/auth/serviceprovider/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -37,7 +37,8 @@ export default function SpLogin({ close, onLoginSuccess }) {
       localStorage.setItem("sp_token", data.token);
 
       alert("Login successful!");
-
+      navigate("/");
+      
       if (typeof onLoginSuccess === "function") {
         onLoginSuccess();
       } else {
@@ -47,8 +48,7 @@ export default function SpLogin({ close, onLoginSuccess }) {
       if (typeof close === "function") {
         close(); // ✅ Close the modal before navigating
       }
-
-      navigate("/"); // ✅ Redirect to homepage or dashboard
+       // ✅ Redirect to homepage or dashboard
     } catch (error) {
       setError(error.message || "An error occurred. Please try again.");
       console.error("Login Error:", error);

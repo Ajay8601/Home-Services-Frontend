@@ -31,7 +31,7 @@ export default function SpRegister({ close }) {
     setSuccessMessage("");
   
     try {
-      const response = await  fetch("https://home-services-backend-five.vercel.app/api/auth/serviceprovider/register", {
+      const response = await  fetch("http://localhost:5000/api/auth/serviceprovider/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ FIX: Send formData directly
@@ -39,13 +39,16 @@ export default function SpRegister({ close }) {
   
       const data = await response.json();
       console.log(data);
+
+ 
   
       if (!response.ok) {
         throw new Error(data.message || "Failed to send data");
       }
-  
+
       setSuccessMessage("Registration Successful! Redirecting...");
       setTimeout(() => navigate("/spLogin"), 2000);
+
   
     } catch (err) {
       setError(err.message || "Error connecting to server. Please try again.");

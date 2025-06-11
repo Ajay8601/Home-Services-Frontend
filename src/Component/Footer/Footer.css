@@ -25,6 +25,20 @@ footer{
   margin-left: 140px;
 
 }
+@media (max-width: 780px){
+  .input-btn{
+  margin-top: -20px;
+  height: 20px;
+  width: 140px;
+}
+.follow-container{
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-left: 100px;
+
+}
+}
 @media (max-width: 480px){
   footer{
     margin-top: 50px;
