@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./PopularServices.css";
-import { useNavigate } from "react-router-dom";
 import Request from "../Request/Request";
 
 const PopularServices = () => {
