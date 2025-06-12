@@ -4,16 +4,20 @@ import { useNavigate } from "react-router-dom";
 import Request from "../Request/Request";
 
 const PopularServices = () => {
-  const [services, setServices] = useState([]);
   const [showForm, setshowForm] = useState(false);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("https://home-services-backend-five.vercel.app/api/services")
-      .then(response => response.json())
-      .then(data => setServices(data))
-      .catch(error => console.error("Error fetching services:", error));
-  }, []);
+const services = [
+  { img: "Images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
+  { img: "Images/PopulerServices/Electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
+  { img: "Images/PopulerServices/cleaning-service.jpeg", alt: "Cleaning service", title: "Cleaning", description: "Professional cleaning services for your home." },
+  { img: "Images/PopulerServices/Appliance Repair Services.jpg", alt: "Appliance repair service", title: "Appliance Repair", description: "Efficient appliance repair services." },
+  { img: "Images/PopulerServices/Painting-service.jpg", alt: "Painting service", title: "Painting", description: "High-quality painting services for your home." },
+  { img: "Images/PopulerServices/Carpentry-service.jpg", alt: "Carpentry service", title: "Carpentry", description: "Expert carpentry services for your home." },
+  { img: "Images/PopulerServices/cctv-installation.jpeg", alt: "Home security service", title: "Home Security", description: "Professional home security solutions." },
+  { img: "Images/PopulerServices/ac-repaire.jpg", alt: "AC repair service", title: "AC and HVAC", description: "Reliable AC and HVAC services." },
+  { img: "Images/PopulerServices/gardering.jpg", alt: "Gardening service", title: "Gardening", description: "Professional gardening and landscaping services." }
+];
+
 
   return (
     <>
@@ -25,7 +29,7 @@ const PopularServices = () => {
           {services.map((service, index) => (
             <div className="plumbing_service" key={index}>
               <div className="img_section">
-                <img src={`http://localhost:5000${service.img}`} alt={service.alt} />
+                <img src={service.img} alt={service.alt} />
               </div>
               <div className="button-text">
                 <div className="text-section">

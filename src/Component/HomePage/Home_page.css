@@ -75,6 +75,7 @@
   margin: 0 30px;
   margin-top: 70px;
   gap: 20px;
+
 }
 
 .clean button {
@@ -125,6 +126,7 @@
   .clean button {
   height: 140px;
   width: 170px;
+  overflow: hidden;
 }
 
   .clean button img {

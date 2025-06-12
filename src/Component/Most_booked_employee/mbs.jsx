@@ -2,30 +2,27 @@ import React, { useRef, useState, useEffect } from "react";
 import "./mbs.css";
 import Request from "../Request/Request";
 
-
 const MostBookedServices = () => {
   const scrollContainerRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
   const [services, setServices] = useState([]);
-  const [RequestForm, setRequestForm] = useState(false);
+  const [requestForm, setRequestForm] = useState(false);
 
-  // Fetch services from API
+  const mostBookedServices = [
+    { img: "Images/most-booked-images/instence-bathroom-cleaner.webp", title: "Intense Bathroom Cleaning", rating: "4.5 (1.1M)", price: "₹499" },
+    { img: "Images/most-booked-images/bathroom.png", title: "Classic Bathroom Cleaning", rating: "4.8 (1.4M)", price: "₹399" },
+    { img: "Images/most-booked-images/fully-automatic-washing.webp", title: "Fully Automatic Washing Machine", rating: "4.2 (249K)", price: "₹149" },
+    { img: "Images/most-booked-images/Sofa cleaning.webp", title: "Sofa Cleaning", rating: "4.1 (400K)", price: "₹499" },
+    { img: "Images/most-booked-images/Haircut.webp", title: "Haircut for Men", rating: "4.5 (309K)", price: "₹249" },
+    { img: "Images/most-booked-images/glow-facials.webp", title: "Instant Glow Facials", rating: "4.5 (149K)", price: "₹799" },
+    { img: "Images/most-booked-images/Deluxe Peicure.webp", title: "Deluxe Pedicure", rating: "4.55 (258K)", price: "₹549" },
+    { img: "Images/most-booked-images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
+  ];
+
   useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/most-booked-services");
-        if (!response.ok) {
-          throw new Error("Failed to fetch services");
-        }
-        const data = await response.json();
-        setServices(data);
-      } catch (error) {
-        console.error("Error fetching most booked services:", error);
-      }
-    };
-
-    fetchServices();
+    // Load services once when component mounts
+    setServices(mostBookedServices);
   }, []);
 
   // Update scroll button visibility
@@ -48,7 +45,7 @@ const MostBookedServices = () => {
     };
   }, [services]);
 
-  // Scroll buttons
+  // Scroll actions
   const scrollLeft = () => scrollContainerRef.current?.scrollBy({ left: -300, behavior: "smooth" });
   const scrollRight = () => scrollContainerRef.current?.scrollBy({ left: 300, behavior: "smooth" });
 
@@ -60,27 +57,23 @@ const MostBookedServices = () => {
           {/* Left Arrow */}
           {!isAtStart && (
             <button className="scrollBtn-1" onClick={scrollLeft}>
-              <img src="/Component/arrow.svg" alt="Previous" height={30}/>
+              <img src="/Component/arrow.svg" alt="Previous" height={30} />
             </button>
           )}
 
           {/* Scrollable Services */}
           <div className="most-booked" ref={scrollContainerRef}>
-            {services.length > 0 ? (
-              services.map((service, index) => (
-                <div key={index} className="mbs" onClick={() => setRequestForm(true)}>
-                  <img src={`http://localhost:5000${service.img}`} alt={service.title} />
-                  <h3>{service.title}</h3>
-                  <h5>
-                    <img src="/Component/star.png" alt="Star" />
-                    <p>{service.rating}</p>
-                  </h5>
-                  <h6>{service.price}</h6>
-                </div>
-              ))
-            ) : (
-              <p>Loading services...</p>
-            )}
+            {services.map((service, index) => (
+              <div key={index} className="mbs" onClick={() => setRequestForm(true)}>
+                <img src={service.img} alt={service.title} />
+                <h3>{service.title}</h3>
+                <h5>
+                  <img src="/Component/star.png" alt="Star" />
+                  <p>{service.rating}</p>
+                </h5>
+                <h6>{service.price}</h6>
+              </div>
+            ))}
           </div>
 
           {/* Right Arrow */}
@@ -93,7 +86,7 @@ const MostBookedServices = () => {
       </section>
 
       {/* Request Form Popup */}
-      {RequestForm && <Request close={() => setRequestForm(false)} />}
+      {requestForm && <Request close={() => setRequestForm(false)} />}
     </>
   );
 };
